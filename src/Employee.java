@@ -2,10 +2,11 @@ import java.util.Objects;
 
 public class Employee {
     private String fullName;
-    private int department, salary, ID;
+    private int department, ID;
+    private double salary;
     private static int counter = 0;
 
-    public Employee(String fullName, int department, int salary) {
+    public Employee(String fullName, int department, double salary) {
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
@@ -24,7 +25,7 @@ public class Employee {
         return department;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
@@ -40,7 +41,7 @@ public class Employee {
         this.department = department;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
@@ -49,6 +50,11 @@ public class Employee {
         return fullName +
                 ": отдел(" + department +
                 ") З/П(" + salary +
+                ") ID(" + ID + ")";
+    }
+    public String toString2() {
+        return fullName +
+                ": З/П(" + salary +
                 ") ID(" + ID + ")";
     }
 
