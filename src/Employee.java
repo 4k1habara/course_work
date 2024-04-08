@@ -2,7 +2,8 @@ import java.util.Objects;
 
 public class Employee {
     private String fullName;
-    private int department, ID;
+    private int department;
+    private int id;
     private double salary;
     private static int counter = 0;
 
@@ -10,11 +11,8 @@ public class Employee {
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
-        ID = counter;
+        id = counter;
         counter++;
-    }
-    public int getCounter() {
-        return ID;
     }
 
     public String getFullName() {
@@ -30,11 +28,7 @@ public class Employee {
     }
 
     public int getID() {
-        return ID;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+        return id;
     }
 
     public void setDepartment(int department) {
@@ -50,12 +44,12 @@ public class Employee {
         return fullName +
                 ": отдел(" + department +
                 ") З/П(" + salary +
-                ") ID(" + ID + ")";
+                ") ID(" + id + ")";
     }
-    public String toString2() {
+    public String toStringWithoutDepartment() {
         return fullName +
                 ": З/П(" + salary +
-                ") ID(" + ID + ")";
+                ") ID(" + id + ")";
     }
 
     @Override
@@ -63,11 +57,11 @@ public class Employee {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         Employee employee = (Employee) object;
-        return department == employee.department && salary == employee.salary && ID == employee.ID && Objects.equals(fullName, employee.fullName);
+        return department == employee.department && salary == employee.salary && id == employee.id && Objects.equals(fullName, employee.fullName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fullName, department, salary, ID);
+        return Objects.hash(fullName, department, salary, id);
     }
 }
